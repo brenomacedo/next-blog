@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <div className="min-h-screen w-full flex flex-col items-center relative">
+    <div className="min-h-screen w-full flex flex-col items-center relative bg-gray-100">
 
       <div className="h-96 bg-home-banner bg-cover bg-center flex items-center justify-center w-full relative">
         <h2 className="text-white text-6xl font-inc mob:text-3xl">Blog do Breno</h2>
@@ -16,6 +16,31 @@ export default function Home() {
           Maecenas eu viverra turpis. Vivamus condimentum mauris et luctus pulvinar. Vivamus id velit nisl. Nam eget erat pellentesque, hendrerit ex eget, vestibulum augue. Maecenas a augue eu purus facilisis congue in at urna. Donec egestas odio metus, eget semper urna condimentum et. Etiam at fermentum risus, eget ullamcorper lacus. Duis metus magna, semper a quam eu, ultrices dapibus elit.
         </p>
       </div>
+
+      <p className="text-gray-900 text-lg text-center mb-6">Últimos posts:</p>
+
+      
+      <div className="flex flex-row mb-10 w-11/12 overflow-auto custom-scroll">
+        <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl w-72 mr-4 flex-shrink-0 flex-grow-0">
+          <div className="h-36  bg-blue-500"></div>
+          <div className="h-16 flex justify-center items-center p-3">
+            <p className="font-inc text-gray-900 font-bold text-sm text-center">Título do post um titulo bem grande bem grande mesmo</p>
+          </div>
+        </div>
+        <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl w-72 mr-4 flex-shrink-0 flex-grow-0">
+          <div className="h-36  bg-blue-500"></div>
+          <div className="h-16 flex justify-center items-center p-3">
+            <p className="font-inc text-gray-900 font-bold text-sm text-center">Título do post um titulo bem grande bem grande mesmo</p>
+          </div>
+        </div>
+        <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl w-72 mr-4 flex-shrink-0 flex-grow-0">
+          <div className="h-36  bg-blue-500"></div>
+          <div className="h-16 flex justify-center items-center p-3">
+            <p className="font-inc text-gray-900 font-bold text-sm text-center">Título do post um titulo bem grande bem grande mesmo</p>
+          </div>
+        </div>
+      </div> 
+      
 
       <div className="bg-gray-700 h-14 w-full flex items-center justify-center">
         <p className="text-white">Blog do Breno - 2021 - Todos os direitos reservados.</p>
