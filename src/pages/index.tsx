@@ -20,7 +20,7 @@ export default function Home() {
       <p className="text-gray-900 text-lg text-center mb-6">Últimos posts:</p>
 
       
-      <div className="flex flex-row mb-10 w-11/12 overflow-auto custom-scroll">
+      <div className="flex flex-row mb-10 w-11/12 overflow-x-auto overflow-y-visible custom-scroll pb-2">
         <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl w-72 mr-4 flex-shrink-0 flex-grow-0">
           <div className="h-36  bg-blue-500"></div>
           <div className="h-16 flex justify-center items-center p-3">
