@@ -1,5 +1,11 @@
 {
     "post-teste": {
         "title": "Teste do Post"
+    },
+    "outro-post": {
+        "title": "Outro post"
+    },
+    "outro-post-denovo": {
+        "title": "Outro Post de novo"
     }
 }
