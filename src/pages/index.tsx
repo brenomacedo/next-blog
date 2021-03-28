@@ -1,4 +1,41 @@
-export default function Home() {
+import { GetStaticProps } from "next"
+import Link from "next/link"
+import { get3LastPosts } from "../services/api"
+
+interface LastPost {
+  thumb: string
+  slug: string
+  title: string
+}
+
+interface PostProps {
+  lastPosts: LastPost[]
+}
+
+export default function Home({ lastPosts }: PostProps) {
+
+
+
+  const renderLastPosts = () => {
+        return lastPosts.map((post, index) => {
+            return (
+                <Link href={`/posts/${post.slug}`}>
+                    <div key={index} className="flex cursor-pointer
+                        flex-col rounded-2xl overflow-hidden shadow-xl w-72 mr-4 flex-shrink-0 flex-grow-0">
+                        <div className="h-36  bg-blue-500" style={{
+                            backgroundImage: `url('/${post.thumb}')`,
+                            backgroundSize: 'cover',
+                            backgroundPosition: 'center'
+                        }}></div>
+                        <div className="h-16 flex justify-center items-center p-3">
+                            <p className="font-inc text-gray-900 font-bold text-sm text-center">{post.title}</p>
+                        </div>
+                    </div> 
+                </Link> 
+            )
+        })
+    }
+
   return (
     <div className="min-h-screen w-full flex flex-col items-center relative bg-gray-100">
 
@@ -20,27 +57,12 @@ export default function Home() {
       <p className="text-gray-900 text-lg text-center mb-6">Últimos posts:</p>
 
       
-      <div className="flex flex-row mb-10 w-11/12 overflow-x-auto overflow-y-visible custom-scroll pb-2">
-        <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl w-72 mr-4 flex-shrink-0 flex-grow-0">
-          <div className="h-36  bg-blue-500"></div>
-          <div className="h-16 flex justify-center items-center p-3">
-            <p className="font-inc text-gray-900 font-bold text-sm text-center">Título do post um titulo bem grande bem grande mesmo</p>
+      <div className="w-full bg-gray-100 p-4 flex flex-col items-center">
+          <div className="flex flex-row mb-10 w-11/12 max-w-5xl overflow-x-auto pb-2
+              overflow-y-visible custom-scroll">
+              {renderLastPosts()}
           </div>
-        </div>
-        <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl w-72 mr-4 flex-shrink-0 flex-grow-0">
-          <div className="h-36  bg-blue-500"></div>
-          <div className="h-16 flex justify-center items-center p-3">
-            <p className="font-inc text-gray-900 font-bold text-sm text-center">Título do post um titulo bem grande bem grande mesmo</p>
-          </div>
-        </div>
-        <div className="flex flex-col rounded-2xl overflow-hidden shadow-xl w-72 mr-4 flex-shrink-0 flex-grow-0">
-          <div className="h-36  bg-blue-500"></div>
-          <div className="h-16 flex justify-center items-center p-3">
-            <p className="font-inc text-gray-900 font-bold text-sm text-center">Título do post um titulo bem grande bem grande mesmo</p>
-          </div>
-        </div>
-      </div> 
-      
+      </div>
 
       <div className="bg-gray-700 h-14 w-full flex items-center justify-center">
         <p className="text-white">Blog do Breno - 2021 - Todos os direitos reservados.</p>
@@ -48,4 +70,15 @@ export default function Home() {
 
     </div>
   )
+}
+
+export const getStaticProps: GetStaticProps = async (ctx) => {
+
+  const lastPosts = get3LastPosts()
+
+  return {
+      props: {
+          lastPosts
+      }
+  }
 }
